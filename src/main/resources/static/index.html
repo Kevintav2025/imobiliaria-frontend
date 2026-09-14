@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Clientes | Imobiliária</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gestão de Clientes - Imobiliária</h1>
+            <p>Gerencie seus contatos, preferências e atendimentos em um só lugar.</p>
+        </header>
+
+        <!-- Formulário de Cadastro/Edição -->
+        <section class="card">
+            <h2 id="form-title">Cadastrar Novo Cliente</h2>
+            <form id="cliente-form">
+                <input type="hidden" id="cliente-id">
+                
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo *</label>
+                        <input type="text" id="nome" required placeholder="Ex: Ana Maria">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone / WhatsApp *</label>
+                        <input type="text" id="telefone" required placeholder="Ex: (91) 98888-7777">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="Ex: cliente@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tipoInteresse">Tipo de Interesse</label>
+                        <select id="tipoInteresse">
+                            <option value="Compra">Compra</option>
+                            <option value="Aluguel">Aluguel</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="statusAtendimento">Status do Atendimento</label>
+                        <select id="statusAtendimento">
+                            <option value="Novo">Novo</option>
+                            <option value="Em Negociação">Em Negociação</option>
+                            <option value="Visita Agendada">Visita Agendada</option>
+                            <option value="Fechado">Fechado</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="perfilImovel">Perfil do Imóvel Desejado</label>
+                        <input type="text" id="perfilImovel" placeholder="Ex: Apto 2 quartos com garagem até R$ 300 mil">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="anotacoes">Anotações / Histórico</label>
+                        <textarea id="anotacoes" rows="3" placeholder="Detalhes da conversa, preferências especificadas..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="btn-salvar" class="btn primary">Salvar Cliente</button>
+                    <button type="button" id="btn-cancelar" class="btn secondary" style="display: none;">Cancelar Edit</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Tabela de Clientes Cadastrados -->
+        <section class="card">
+            <h2>Lista de Clientes Cadastrados</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>Interesse</th>
+                            <th>Perfil do Imóvel</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-clientes">
+                        <!-- Dados injetados via JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
