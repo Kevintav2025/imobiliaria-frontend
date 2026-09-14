@@ -1,12 +1,12 @@
-# Etapa 1: Compilar o projeto Java
-FROM eclipse-temurin:17-jdk-alpine AS build
+# Etapa 1: Compilar o projeto Java (Versão 21)
+FROM eclipse-temurin:21-jdk-alpine AS build
 WORKDIR /app
 COPY . .
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-# Etapa 2: Executar a aplicação
-FROM eclipse-temurin:17-jre-alpine
+# Etapa 2: Executar a aplicação (Versão 21)
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
